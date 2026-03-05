@@ -35,6 +35,11 @@ router.get('/:id', (req, res) => {
    res.json(evento);
 });
 
+//Criar eventos
+router.post('/', (req, res) => {
+    const novoEvento = database.inserir(req.body);
+    res.status(201).json(novoEvento);
+});
 router.post("/:id/inscricao", (req, res) => {
    const id = Number(req.params.id)
    const reduz = database.reduzirVaga(id)
